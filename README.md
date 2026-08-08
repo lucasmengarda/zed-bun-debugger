@@ -44,7 +44,7 @@ Cmd+Shift+P → extensions: install extension → "Bun Debugger"
 
 1. Clone this repository:
    ```bash
-   git clone git@github.com:barnesoir/zed-bun-debugger.git
+   git clone git@github.com:lucasmengarda/zed-bun-debugger.git
    cd zed-bun-debugger
    ```
 

@@ -8,7 +8,7 @@
 - [Rust](https://rust-lang.org) 1.85.0+ with `wasm32-wasip1` target
 
 ```bash
-git clone git@github.com:barnesoir/zed-bun-debugger.git
+git clone git@github.com:lucasmengarda/zed-bun-debugger.git
 cd zed-bun-debugger
 bun install
 bun run scripts/vendor.ts
