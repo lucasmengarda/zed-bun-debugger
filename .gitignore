@@ -1,0 +1,37 @@
+# Build artifacts
+/bin/
+target/
+dist/
+*.wasm
+
+# Dependencies
+node_modules/
+
+# Temporary files
+.tmp-bun-clone/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test artifacts
+coverage/
+*.tmp
+# Local Pi runtime state
+.atl/
+zed-test-workspace/
+
+# Removed internal directories (cleaned for open source)
+.cursor/
+.pi/
+openspec/
+tmp-ext/
+verify-workspace/
+test-bun-project/

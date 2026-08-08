@@ -1,0 +1,10 @@
+id = "bun-debugger"
+name = "Bun Debugger"
+version = "0.1.0"
+schema_version = 1
+authors = ["barnesoir <barnesoir@users.noreply.github.com>", "lucasmengarda"]
+description = "Debug Bun applications via DAP bridge"
+repository = "https://github.com/lucasmengarda/zed-bun-debugger"
+
+[debug_adapters]
+bun-debug = { name = "Bun Debug", label = "Bun Debugger", schema_path = "debug_adapter_schemas/bun-debug.json" }

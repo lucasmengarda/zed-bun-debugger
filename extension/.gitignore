@@ -1,0 +1,18 @@
+# Rust build artifacts
+target/
+
+# WASM build artifacts
+*.wasm
+
+# Bridge binary (downloaded at runtime)
+bin/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

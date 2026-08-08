@@ -1,0 +1,26 @@
+{
+  "name": "bun-debugger-extension",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "bridge"
+  ],
+  "scripts": {
+    "sync": "bun run scripts/sync-to-work.ts",
+    "vendor": "bun run scripts/vendor.ts",
+    "build": "bun run scripts/build.ts",
+    "build:bridge": "cd bridge && bun run build",
+    "build:wasm": "cd extension && cargo build --target wasm32-wasip1 --release && cp target/wasm32-wasip1/release/bun_debugger.wasm bun_debugger.wasm",
+    "test": "bun test tests/",
+    "test:bridge": "bun test tests/bridge.test.ts",
+    "test:integration": "bun run tests/integration.ts",
+    "test:timeout": "bun run tests/timeout.ts",
+    "verify": "bun run tests/verify-build.ts",
+    "package": "bun run scripts/package.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "latest"
+  }
+}

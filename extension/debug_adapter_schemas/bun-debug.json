@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bun Debug Adapter Launch Configuration",
+  "description": "Configuration schema for debugging Bun applications with the bun-debugger extension.",
+  "type": "object",
+  "required": ["program"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "bun-debug",
+      "description": "Must be 'bun-debug' to use this adapter."
+    },
+    "request": {
+      "type": "string",
+      "enum": ["launch"],
+      "description": "Only 'launch' is supported."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name for this configuration."
+    },
+    "program": {
+      "type": "string",
+      "description": "Absolute or workspace-relative path to the Bun script to debug."
+    },
+    "args": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Command-line arguments passed to the Bun script."
+    },
+    "cwd": {
+      "type": "string",
+      "description": "Working directory for the debuggee. Defaults to the workspace root."
+    },
+    "env": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "Environment variables for the debuggee."
+    },
+    "stopOnEntry": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pause execution at the first line."
+    },
+    "runtimeArgs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Arguments passed to the Bun runtime itself, before the program (e.g. '--smol')."
+    },
+    "watchMode": {
+      "oneOf": [{ "type": "boolean" }, { "type": "string", "enum": ["hot"] }],
+      "default": false,
+      "description": "Reload on file change: true runs the program with '--watch', 'hot' with '--hot'. The debugger re-attaches after every reload. Alias: 'watch'."
+    },
+    "watch": {
+      "oneOf": [{ "type": "boolean" }, { "type": "string", "enum": ["hot"] }],
+      "description": "Alias for 'watchMode'."
+    },
+    "strictEnv": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pass only 'env' to the debuggee instead of merging it over the adapter's environment."
+    },
+    "runtime": {
+      "type": "string",
+      "default": "bun",
+      "description": "Runtime executable. Usually 'bun'."
+    }
+  }
+}

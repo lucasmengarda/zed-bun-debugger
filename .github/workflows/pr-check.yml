@@ -1,0 +1,41 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+        with:
+          bun-version: latest
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8
+        with:
+          targets: wasm32-wasip1
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Vendor Bun adapter
+        run: bun run scripts/vendor.ts
+
+      - name: Build
+        run: bun run scripts/build.ts
+
+      - name: Run unit tests
+        run: bun test tests/
+
+      - name: Verify build artifacts
+        run: bun run tests/verify-build.ts
