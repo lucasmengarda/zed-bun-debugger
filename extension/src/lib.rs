@@ -16,18 +16,11 @@ impl Extension for BunDebuggerExtension {
         _adapter_name: String,
         config: zed_extension_api::DebugTaskDefinition,
         user_provided_debug_adapter_path: Option<String>,
-        _worktree: &Worktree,
+        worktree: &Worktree,
     ) -> zed_extension_api::Result<DebugAdapterBinary, String> {
         let bridge_path = if let Some(path) = user_provided_debug_adapter_path {
             path
-        } else if let Ok(path) = std::env::var("BUN_DEBUGGER_BRIDGE_PATH") {
-            let bridge_path = std::path::PathBuf::from(&path);
-            if !bridge_path.is_file() {
-                return Err(format!(
-                    "BUN_DEBUGGER_BRIDGE_PATH does not point to a bridge executable: {}",
-                    path
-                ));
-            }
+        } else if let Some(path) = worktree.which("bun-debugger-bridge") {
             path
         } else {
             let pwd = std::env::var("PWD").map_err(|e| format!("PWD not set: {}", e))?;

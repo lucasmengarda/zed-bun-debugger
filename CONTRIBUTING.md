@@ -5,7 +5,7 @@
 - [Zed](https://zed.dev)
 - [Bun](https://bun.sh) 1.2.0+
 - [Node.js](https://nodejs.org) 18+
-- [Rust](https://rust-lang.org) 1.85.0+ with `wasm32-wasip1` target
+- Rust 1.85.0+ with `wasm32-wasip2` target
 
 ```bash
 git clone git@github.com:lucasmengarda/zed-bun-debugger.git

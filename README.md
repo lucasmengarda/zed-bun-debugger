@@ -28,7 +28,7 @@ Bun Runtime (--inspect)
 - [Zed](https://zed.dev) (latest stable)
 - [Bun](https://bun.sh) 1.2.0+ (1.3.14+ recommended for full debugging support)
 - [Node.js](https://nodejs.org) 18+ (for the bridge runtime)
-- [Rust](https://rust-lang.org) 1.85.0+ with `wasm32-wasip1` target
+- [Rust](https://rust-lang.org) 1.85.0+ with `wasm32-wasip2` target
 
 ## Installation
 
@@ -133,7 +133,7 @@ bun run scripts/build.ts
 bun run bridge build
 
 # Build only the WASM extension
-cd extension && cargo build --target wasm32-wasip1 --release
+cd extension && cargo build --target wasm32-wasip2 --release
 ```
 
 ## Testing
