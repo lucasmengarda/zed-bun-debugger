@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bun build src/main.ts --target=node --outdir=../../bin --outfile=bridge.js && echo '#!/usr/bin/env node' | cat - ../../bin/bridge.js > ../../bin/bridge && chmod +x ../../bin/bridge && rm ../../bin/bridge.js"
+    "build": "bun run ../scripts/build.ts --bridge-only"
   },
   "dependencies": {
     "ws": "^8.20.1",

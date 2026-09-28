@@ -88,7 +88,7 @@ async function buildWasm(): Promise<void> {
 async function main(): Promise<void> {
   try {
     await buildBridge();
-    await buildWasm();
+    if (!process.argv.includes("--bridge-only")) await buildWasm();
     console.log("[build] All done!");
     process.exit(0);
   } catch (err) {
