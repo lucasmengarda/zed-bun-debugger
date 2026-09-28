@@ -17,6 +17,7 @@ const BIN_DIR = join(EXTENSION_DIR, "bin");
 const ZED_WORK_DIRS = [
   join(homedir(), "Library", "Application Support", "Zed", "extensions", "work", "bun-debugger"),
   join(homedir(), ".local", "share", "zed", "extensions", "work", "bun-debugger"),
+  join(homedir(), ".local", "share", "zed", "remote_extensions", "work", "bun-debugger"),
 ];
 
 async function run(cmd: string, args: string[], cwd: string): Promise<void> {
